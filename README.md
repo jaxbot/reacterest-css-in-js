@@ -1,6 +1,8 @@
-# Reacterest
+# Reacterest with CSS in the JS
 
-A React/Flux example that's a little Pinterest-y. Wrote it to learn React. It's public domain, so feel free to use it however you like.
+[Reacterest](https://github.com/jaxbot/reacterest) but with the [CSS in the JS](https://speakerdeck.com/vjeux/react-css-in-js).
+
+(Work in progress, still getting a feel for it and whether or not I like it)
 
 # License
 

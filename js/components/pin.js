@@ -1,6 +1,17 @@
 var PinActions = require("../actions/PinActions");
 var Store = require("../stores/Store");
 
+var pinStyle = {
+	background: "#fff",
+	width: 300,
+	border: "solid 1px #ccc",
+	position: "relative",
+	display: "inline-block",
+	margin: 5,
+	cursor: "pointer",
+	verticalAlign: "top"
+};
+
 module.exports = React.createClass({
   getInitialState: function() {
     return {
@@ -32,12 +43,11 @@ module.exports = React.createClass({
     var pinButton;
     var pinButtonClasses = ["pinButton", this.state.pinned ? "pinned" : ""].join(" ");
     pinButton = <button onClick={this._onPinClick} className={pinButtonClasses}>Pin</button>;
-    var pinClasses = ["pin", this.state.pinned ? "pinned" : ""].join(" ");
 
     return (
-      <div className={pinClasses} onClick={this._onPostClick}>
+      <div onClick={this._onPostClick} style={pinStyle}>
         <img src={pin.image} alt={pin.title} />
-        <h2>{pin.title}</h2>
+        <h2> {pin.title}</h2>
         {pinButton}
       </div>
     );

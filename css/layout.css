@@ -22,17 +22,6 @@ header .new {
 	margin: 5px;
 }
 
-.pin {
-	background: #fff;
-	width: 300px;
-	border: solid 1px #ccc;
-	position: relative;
-	display: inline-block;
-	margin: 5px;
-	cursor: pointer;
-	vertical-align: top;
-}
-
 .pin img {
 	max-width: 300px;
 	max-height: 400px;

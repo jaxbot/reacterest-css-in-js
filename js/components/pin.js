@@ -2,14 +2,43 @@ var PinActions = require("../actions/PinActions");
 var Store = require("../stores/Store");
 
 var pinStyle = {
-	background: "#fff",
-	width: 300,
-	border: "solid 1px #ccc",
-	position: "relative",
-	display: "inline-block",
-	margin: 5,
-	cursor: "pointer",
-	verticalAlign: "top"
+  background: "#fff",
+  width: 300,
+  border: "solid 1px #ccc",
+  position: "relative",
+  display: "inline-block",
+  margin: 5,
+  cursor: "pointer",
+  verticalAlign: "top"
+};
+
+var pinButtonStyle = {
+  WebkitTransition: "all 0.4s ease",
+  WebkitAppearance: "none",
+  outline: "none",
+  border: "none",
+  background: "#FF1857",
+  color: "#fff",
+  fontSize: 20,
+  opacity: "1",
+  position: "absolute",
+  top: 5,
+  right: 5,
+  cursor: "pointer",
+  fontFamily: "Courgette",
+  borderRadius: 10,
+  height: 30,
+  lineHeight: 30,
+};
+
+var imgStyle = {
+  maxWidth: 300,
+  maxHeight: 400,
+};
+
+var pinButtonPinnedStyle = {
+  fontSize: 0,
+  opacity: 0.9,
 };
 
 module.exports = React.createClass({
@@ -41,12 +70,12 @@ module.exports = React.createClass({
     var pin = this.props.pin;
 
     var pinButton;
-    var pinButtonClasses = ["pinButton", this.state.pinned ? "pinned" : ""].join(" ");
-    pinButton = <button onClick={this._onPinClick} className={pinButtonClasses}>Pin</button>;
+    var pbStyle = m(pinButtonStyle, this.state.pinned ? pinButtonPinnedStyle : {});
+    pinButton = <button onClick={this._onPinClick} style={pbStyle}>Pin</button>;
 
     return (
       <div onClick={this._onPostClick} style={pinStyle}>
-        <img src={pin.image} alt={pin.title} />
+        <img src={pin.image} alt={pin.title} style={imgStyle} />
         <h2> {pin.title}</h2>
         {pinButton}
       </div>
@@ -54,4 +83,14 @@ module.exports = React.createClass({
   }
 });
 
-
+function m() {
+  var result = {};
+  for (var i = 0; i < arguments.length; i++) {
+    if (arguments[i]) {
+      for (var key in arguments[i]) {
+	result[key] = arguments[i][key];
+      }
+    }
+  }
+  return result;
+}

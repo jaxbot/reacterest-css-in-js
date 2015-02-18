@@ -4,6 +4,7 @@ module.exports = React.createClass({
   },
   render: function() {
     var pin = this.props.pin;
+
     return (
       <div>
         <div className="background_fader" onClick={this._hide} />

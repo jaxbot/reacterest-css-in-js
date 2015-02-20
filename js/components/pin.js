@@ -1,6 +1,8 @@
 var PinActions = require("../actions/PinActions");
 var Store = require("../stores/Store");
 
+
+
 var pinStyle = {
   background: "#fff",
   width: 300,
@@ -9,8 +11,7 @@ var pinStyle = {
   display: "inline-block",
   margin: 5,
   cursor: "pointer",
-  verticalAlign: "top",
-  padding: 100
+  verticalAlign: "top"
 };
 
 var pinButtonStyle = {
@@ -82,11 +83,10 @@ module.exports = React.createClass({
     var pbStyle = m(pinButtonStyle, this.state.pinned ? pinButtonPinnedStyle : {});
     pinStyle.backgroundColor = this.isHovered ? "white" : "red";
     pinButton = <button onClick={this._onPinClick} style={pbStyle}>Pin</button>;
-    var hover = ".pinButton:before {	-webkit-transition: all 0.4s ease;	font-size: 0px;	content: '\2665';}.pinButton:hover {	-webkit-transform: scale(1.1);}";
     return (
       <div onClick={this._onPostClick} style={pinStyle} onMouseOver={this.hover} onMouseOut={this.stopHover}>
         <img src={pin.image} alt={pin.title} style={imgStyle} />
-        <h2> {pin.title}</h2>
+        <h2>{pin.title}</h2>
         {pinButton}
       </div>
     );

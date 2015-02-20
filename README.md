@@ -1,8 +1,8 @@
 # Reacterest with CSS in the JS
 
-[Reacterest](https://github.com/jaxbot/reacterest) but with the [CSS in the JS](https://speakerdeck.com/vjeux/react-css-in-js).
+An attempt at building [Reacterest](https://github.com/jaxbot/reacterest) but with the [CSS in the JS](https://speakerdeck.com/vjeux/react-css-in-js).
 
-(Work in progress, still getting a feel for it and whether or not I like it)
+Decided it was too much overhead to be worth it, but there are some fun thoughts coming out from this.
 
 # License
 

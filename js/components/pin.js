@@ -9,7 +9,8 @@ var pinStyle = {
   display: "inline-block",
   margin: 5,
   cursor: "pointer",
-  verticalAlign: "top"
+  verticalAlign: "top",
+  padding: 100
 };
 
 var pinButtonStyle = {
@@ -66,15 +67,24 @@ module.exports = React.createClass({
   _onChange: function() {
     this.setState(Store.getPinState(this.props.pin.id));
   },
+  hover: function() {
+    this.isHovered = true;
+    this._onChange();
+  },
+  stopHover: function() {
+    this.isHovered = false;
+    this._onChange();
+  },
   render: function() {
     var pin = this.props.pin;
 
     var pinButton;
     var pbStyle = m(pinButtonStyle, this.state.pinned ? pinButtonPinnedStyle : {});
+    pinStyle.backgroundColor = this.isHovered ? "white" : "red";
     pinButton = <button onClick={this._onPinClick} style={pbStyle}>Pin</button>;
-
+    var hover = ".pinButton:before {	-webkit-transition: all 0.4s ease;	font-size: 0px;	content: '\2665';}.pinButton:hover {	-webkit-transform: scale(1.1);}";
     return (
-      <div onClick={this._onPostClick} style={pinStyle}>
+      <div onClick={this._onPostClick} style={pinStyle} onMouseOver={this.hover} onMouseOut={this.stopHover}>
         <img src={pin.image} alt={pin.title} style={imgStyle} />
         <h2> {pin.title}</h2>
         {pinButton}
